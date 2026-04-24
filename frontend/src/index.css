@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #334155 #0f172a;
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 3px;
+}
+
+body {
+  min-height: 100vh;
+  background: #0c1220;
+}
+
+::selection {
+  background: rgba(99, 102, 241, 0.25);
+}
+
+@layer components {
+  .card {
+    @apply bg-slate-800/70 border border-slate-700/60 rounded-lg;
+  }
+
+  .tree-node {
+    @apply relative pl-5 py-0.5;
+  }
+
+  .tree-node::before {
+    content: '';
+    @apply absolute left-0 top-0 bottom-0 w-px bg-slate-600/40;
+  }
+
+  .tree-node::after {
+    content: '';
+    @apply absolute left-0 top-3.5 w-3.5 h-px bg-slate-600/40;
+  }
+
+  .tree-node:last-child::before {
+    @apply h-3.5;
+  }
+}
